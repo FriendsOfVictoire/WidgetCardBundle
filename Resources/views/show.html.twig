@@ -1,0 +1,7 @@
+{% extends 'VictoireCoreBundle:Widget:show.html.twig' %}
+
+{% block content %}
+    {% set themeCard = themeCard|default('default') %}
+    {% set template = "VictoireWidgetCardBundle:includes:#{themeCard}.html.twig" %}
+    {% include template %}
+{% endblock content %}

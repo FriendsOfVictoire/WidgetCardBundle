@@ -1,0 +1,19 @@
+<div class="job-board">
+    {% if cardType is defined and cardType %}
+        <div class="type">{{ cardType }}</div>
+    {% endif %}
+
+    <h4 class="title">
+        {{ (title is defined and title) ? title : "" }}
+
+        {% if shortDescription is defined and shortDescription %}
+        <small class="titleSmall">{{ shortDescription }}</small>
+        {% endif %}
+    </h4>
+
+    {% if buttonText is defined and buttonText %}
+        <a href="{{ (buttonLink is defined and buttonLink) ? buttonLink : '#' }}" class="btn btn-default" role="button">
+            {{ (buttonIcon is defined and buttonIcon) ? "<i class='fa #{buttonIcon}'></i>"|raw : "" }} {{ buttonText }}
+        </a>
+    {% endif %}
+</div>

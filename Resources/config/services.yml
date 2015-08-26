@@ -1,0 +1,15 @@
+services:
+    victoire_core.widget_card_content_resolver:
+        parent: victoire_widget.base_widget_content_resolver
+        tags:
+            - { name: victoire_widget.widget_content_resolver, alias: Card }
+
+    #alias to the entity
+    victoire.widget.card:
+        class: Victoire\Widget\CardBundle\Entity\WidgetCard
+
+    #alias to the form
+    victoire.widget.form.card:
+        class: Victoire\Widget\CardBundle\Form\WidgetCardType
+        tags:
+            - { name: form.type , alias: victoire_widget_form_card }

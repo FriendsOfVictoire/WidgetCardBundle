@@ -1,0 +1,37 @@
+{% extends "VictoireWidgetCardBundle:extends:base.html.twig" %}
+
+{% if image is defined and image %}
+    {% block cover %}
+        <div class="cover" style="background-image: url({{ image }});">
+            {% if (legend is defined and legend) or (date is defined and date) %}
+            <div class="coverCaption">
+                {{ (legend is defined and legend) ? legend : "" }}
+                <span class="pull-right">
+                    {{ (date is defined and date) ? date|date : "" }}
+                </span>
+            </div>
+            {% endif %}
+        </div>
+    {% endblock cover %}
+{% endif %}
+
+{% if title is defined and title %}
+    {% block title %}
+        {{ title }}
+    {% endblock %}
+{% endif %}
+
+{% if shortDescription is defined and shortDescription %}
+    {% block shortDescription %}
+        <p>{{ shortDescription }}</p>
+    {% endblock %}
+{% endif %}
+
+
+{% if buttonText is defined and buttonText %}
+    {% block button %}
+        <a href="{{ (buttonLink is defined and buttonLink) ? buttonLink : '#' }}" class="btn btn-primary btn-block" role="button">
+            {{ (buttonIcon is defined and buttonIcon) ? "<i class='fa #{buttonIcon}'></i>"|raw : "" }} {{ buttonText }}
+        </a>
+    {% endblock %}
+{% endif %}

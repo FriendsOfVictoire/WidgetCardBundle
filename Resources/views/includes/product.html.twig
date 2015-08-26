@@ -1,0 +1,47 @@
+{% extends "VictoireWidgetCardBundle:extends:base.html.twig" %}
+
+{% if image is defined and image %}
+    {% set popoverId = "widgetCardpopover-" ~ widget.id %}
+    {% block cover %}
+        <div class="cover" style="background-image: url({{ image }});">
+            {% if popover is defined and popover %}
+            <button id="{{ popoverId }}" type="button" class="btn btn-link -square popoverTrigger" data-container="body" data-toggle="popover" data-placement="right" data-content="{{ popover }}">
+                <i class="fa fa-info-circle"></i>
+            </button>
+            {% endif %}
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#{{ popoverId }}').popover();
+            });
+        </script>
+    {% endblock cover %}
+{% endif %}
+
+{% if title is defined and title %}
+    {% block title %}
+        <strong>{{ title }}</strong>
+    {% endblock %}
+{% endif %}
+
+{% if shortDescription is defined and shortDescription %}
+    {% block shortDescription %}
+        <h4>{{ shortDescription }}</h4>
+    {% endblock %}
+{% endif %}
+
+{% if price is defined and price %}
+    {% block price %}
+        <h5 class="h5 price"><strong>{{ price|localizedcurrency('EUR') }}</strong></h5>
+    {% endblock %}
+{% endif %}
+
+
+{% if buttonText is defined and buttonText %}
+    {% block button %}
+        <a href="{{ (buttonLink is defined and buttonLink) ? buttonLink : '#' }}" class="btn btn-primary btn-block" role="button">
+            {{ (buttonIcon is defined and buttonIcon) ? "<i class='fa #{buttonIcon}'></i>"|raw : "" }} {{ buttonText }}
+        </a>
+    {% endblock %}
+{% endif %}

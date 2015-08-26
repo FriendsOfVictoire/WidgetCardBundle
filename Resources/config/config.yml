@@ -1,0 +1,11 @@
+victoire_core:
+    widgets:
+        Card:
+            class: "Victoire\\Widget\\CardBundle\\Entity\\WidgetCard"
+            name: Card
+            
+jms_translation:
+    configs:
+        victoire_card_bundle:
+            dirs: ["@VictoireCardBundle"]
+            output_dir: "@VictoireCardBundle/Resources/translations"
