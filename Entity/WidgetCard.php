@@ -15,6 +15,7 @@ use Victoire\Widget\ImageBundle\Entity\WidgetImage;
  */
 class WidgetCard extends Widget
 {
+    use \Victoire\Bundle\WidgetBundle\Entity\Traits\LinkTrait;
 
     /**
      * @var string
@@ -53,13 +54,6 @@ class WidgetCard extends Widget
      * @ORM\Column(name="buttonIcon", type="string", length=255, nullable=true)
      */
     protected $buttonIcon;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="buttonLink", type="string", length=255, nullable=true)
-     */
-    protected $buttonLink;
 
     /**
      * @var string
@@ -360,25 +354,6 @@ class WidgetCard extends Widget
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * @return string
-     */
-    public function getButtonLink()
-    {
-        return $this->buttonLink;
-    }
-
-    /**
-     * @param string $buttonLink
-     * @return $this
-     */
-    public function setButtonLink($buttonLink)
-    {
-        $this->buttonLink = $buttonLink;
-
-        return $this;
     }
 
 }

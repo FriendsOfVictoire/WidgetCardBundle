@@ -51,7 +51,7 @@ class WidgetCardType extends WidgetType
                 'label' => 'widget_card.form.buttonIcon.label',
                 'required' => false,
             ))
-            ->add('buttonLink', 'victoire_link', array(
+            ->add('link', 'victoire_link', array(
                 'label' => 'widget_card.form.buttonLink.label',
             ))
             ->add('legend', null, array(
