@@ -3,5 +3,10 @@
 {% block content %}
     {% set themeCard = themeCard|default('default') %}
     {% set template = "VictoireWidgetCardBundle:includes:#{themeCard}.html.twig" %}
+
+    {% if link.url is not defined %}
+        {% set link = link|merge(['url', vic_link_url(link.parameters)]) %}
+    {% endif %}
+
     {% include template %}
 {% endblock content %}
