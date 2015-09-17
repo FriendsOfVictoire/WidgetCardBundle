@@ -31,6 +31,7 @@ class WidgetCard extends Widget
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     * @VIC\ReceiverProperty("textable")
      */
     protected $title;
 
@@ -38,6 +39,7 @@ class WidgetCard extends Widget
      * @var text
      *
      * @ORM\Column(name="shortDescription", type="text", nullable=true)
+     * @VIC\ReceiverProperty("textable")
      */
     protected $shortDescription;
 
@@ -56,9 +58,17 @@ class WidgetCard extends Widget
     protected $buttonIcon;
 
     /**
+     * @var string default|warning|info|success|primary|danger
+     *
+     * @ORM\Column(name="style", type="string", length=10)
+     */
+    protected $style;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="legend", type="string", length=255, nullable=true)
+     * @VIC\ReceiverProperty("textable")
      */
     protected $legend;
 
@@ -66,6 +76,7 @@ class WidgetCard extends Widget
      * @var date
      *
      * @ORM\Column(name="date", type="date", nullable=true)
+     * @VIC\ReceiverProperty("dateable")
      */
     protected $date;
 
@@ -73,6 +84,7 @@ class WidgetCard extends Widget
      * @var float
      *
      * @ORM\Column(name="price", type="float", nullable=true)
+     * @VIC\ReceiverProperty("textable")
      */
     protected $price;
 
@@ -87,6 +99,7 @@ class WidgetCard extends Widget
      * @var string
      *
      * @ORM\Column(name="cardType", type="string", length=255, nullable=true)
+     * @VIC\ReceiverProperty("textable")
      */
     protected $cardType;
 
@@ -198,6 +211,29 @@ class WidgetCard extends Widget
     public function getButtonicon()
     {
         return $this->buttonIcon;
+    }
+
+    /**
+     * Get style
+     *
+     * @return string
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
+
+    /**
+     * Set style
+     *
+     * @param string $style
+     * @return $this
+     */
+    public function setStyle($style)
+    {
+        $this->style = $style;
+
+        return $this;
     }
 
     /**

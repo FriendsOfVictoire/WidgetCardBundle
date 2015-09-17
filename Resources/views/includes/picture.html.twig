@@ -31,7 +31,7 @@
 {% if buttonText is defined and buttonText %}
     {% block button %}
         {% set targetTag = link.target == "ajax-modal" ? 'data-toggle=' ~ link.target : 'target=' ~ link.target|default('_parent') %}
-        <a href="{{ vic_link_url(link.parameters) }}" {{ targetTag }} class="btn btn-primary btn-block" role="button">
+        <a href="{{ link.url }}" {{ targetTag }} class="btn {% if style is defined and style %}btn-{{ style }}{% endif %}" role="button">
             {{ (buttonIcon is defined and buttonIcon) ? "<i class='fa #{buttonIcon}'></i>"|raw : "" }} {{ buttonText }}
         </a>
     {% endblock %}
