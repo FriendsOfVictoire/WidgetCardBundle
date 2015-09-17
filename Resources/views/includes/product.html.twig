@@ -5,7 +5,7 @@
     {% block cover %}
         <div class="cover" style="background-image: url({{ image }});">
             {% if popover is defined and popover %}
-            <button id="{{ popoverId }}" type="button" class="btn btn-link -square popoverTrigger" data-container="body" data-toggle="popover" data-placement="right" data-content="{{ popover }}">
+            <button id="{% if popoverId is defined and popoverId %}{{ popoverId }}{% endif %}" type="button" class="btn btn-link -square popoverTrigger" data-container="body" data-toggle="popover" data-placement="right" data-content="{{ popover }}">
                 <i class="fa fa-info-circle"></i>
             </button>
             {% endif %}
@@ -13,7 +13,7 @@
 
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#{{ popoverId }}').popover();
+                $('#{% if popoverId is defined and popoverId %}{{ popoverId }}{% endif %}').popover();
             });
         </script>
     {% endblock cover %}
@@ -37,11 +37,10 @@
     {% endblock %}
 {% endif %}
 
-
 {% if buttonText is defined and buttonText %}
     {% block button %}
         {% set targetTag = link.target == "ajax-modal" ? 'data-toggle=' ~ link.target : 'target=' ~ link.target|default('_parent') %}
-        <a href="{{ link.url }}" {{ targetTag }} class="btn {% if link.class is defined %}{{ link.class }}{% endif %}" role="button">
+        <a href="{{ link.url }}" {{ targetTag }} class="btn {% if style is defined and style %}btn-{{ style }}{% endif %}" role="button">
             {{ (buttonIcon is defined and buttonIcon) ? "<i class='fa #{buttonIcon}'></i>"|raw : "" }} {{ buttonText }}
         </a>
     {% endblock %}

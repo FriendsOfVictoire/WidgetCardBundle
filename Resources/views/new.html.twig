@@ -3,27 +3,51 @@
 {% block form_static %}
     <div id="picker-{{ form.mode.vars.data }}" class="vic-tab-pane {% if form.mode.vars.data == widget.mode %}vic-active{% endif %}">
         {{ form_start(form) }}
-            <div class="row">
-                <div class="col-md-4">
-                    {{ form_row(form.themeCard) }}
-                    {{ form_row(form.image) }}
-                </div>
-                <div class="col-md-4">
-                    {{ form_row(form.title) }}
-                    {{ form_row(form.shortDescription) }}
-                    {{ form_row(form.buttonText) }}
-                    {{ form_row(form.buttonIcon) }}
-                    {{ form_row(form.link) }}
-                </div>
-                <div class="col-md-4">
-                    {{ (form.legend is defined) ? form_row(form.legend) : "" }}
-                    {{ (form.date is defined) ? form_row(form.date) : "" }}
-                    {{ (form.cardType is defined) ? form_row(form.cardType) : "" }}
-                    {{ (form.popover is defined) ? form_row(form.popover) : "" }}
-                    {{ (form.price is defined) ? form_row(form.price) : "" }}
-                </div>
+        <div class="row">
+            <div class="col-md-4">
+                {{ form_row(form.themeCard) }}
+                {{ (form.image is defined) ? form_row(form.image) }}
+                {{ (form.legend is defined) ? form_row(form.legend) : "" }}
             </div>
-            {{form_rest(form)}}
+            <div class="col-md-4">
+                {{ form_row(form.title) }}
+                {{ form_row(form.shortDescription) }}
+                {{ (form.date is defined) ? form_row(form.date) : "" }}
+                {{ (form.cardType is defined) ? form_row(form.cardType) : "" }}
+                {{ (form.popover is defined) ? form_row(form.popover) : "" }}
+                {{ (form.price is defined) ? form_row(form.price) : "" }}
+            </div>
+            <div class="col-md-4">
+                {{ form_row(form.buttonText) }}
+                {{ form_row(form.buttonIcon) }}
+                {{ form_row(form.style) }}
+                {{ form_row(form.style) }}
+                {{ form_row(form.link) }}
+                {{ form_widget(form.asynchronous) }}
+            </div>
+        </div>
+        {{ form_rest(form) }}
         {{ form_end(form) }}
     </div>
 {% endblock form_static %}
+
+{% block form_entity %}
+    <div id="picker-{{ entity|lower }}-{{ form.mode.vars.data }}" class="vic-tab-pane vic-mode-{{ widget.mode }} {% if form.mode.vars.data == widget.mode %}vic-active{% endif %}">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-4">
+                {{ form_row(form.themeCard) }}
+                {{ (form.image is defined) ? form_row(form.image) }}
+            </div>
+            <div class="col-md-4">
+                {{ (form.fields is defined) ? form_widget(form.fields) }}
+                {{ (form.entity_proxy is defined) ? form_widget(form.entity_proxy) }}
+                {{ form_widget(form.asynchronous) }}
+            </div>
+            <div class="col-md-4">
+                {{form_rest(form)}}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock form_entity %}
