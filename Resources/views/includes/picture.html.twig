@@ -1,7 +1,7 @@
 {% extends "VictoireWidgetCardBundle:extends:base.html.twig" %}
 
-{% if image is defined and image %}
-    {% block cover %}
+{% block cover %}
+    {% if image is defined and image %}
         <div class="cover" style="background-image: url({{ image }});">
             {% if (legend is defined and legend) or (date is defined and date) %}
             <div class="coverCaption">
@@ -12,27 +12,26 @@
             </div>
             {% endif %}
         </div>
-    {% endblock cover %}
-{% endif %}
+    {% endif %}
+{% endblock cover %}
 
-{% if title is defined and title %}
-    {% block title %}
+{% block title %}
+    {% if title is defined and title %}
         {{ title }}
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}
 
-{% if shortDescription is defined and shortDescription %}
-    {% block shortDescription %}
+{% block shortDescription %}
+    {% if shortDescription is defined and shortDescription %}
         <p>{{ shortDescription }}</p>
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}
 
-
-{% if buttonText is defined and buttonText %}
-    {% block button %}
+{% block button %}
+    {% if buttonText is defined and buttonText %}
         {% set targetTag = link.target == "ajax-modal" ? 'data-toggle=' ~ link.target : 'target=' ~ link.target|default('_parent') %}
         <a href="{{ link.url }}" {{ targetTag }} class="btn {% if style is defined and style %}btn-{{ style }}{% endif %}" role="button">
             {{ (buttonIcon is defined and buttonIcon) ? "<i class='fa #{buttonIcon}'></i>"|raw : "" }} {{ buttonText }}
         </a>
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}

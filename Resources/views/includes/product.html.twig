@@ -1,8 +1,8 @@
 {% extends "VictoireWidgetCardBundle:extends:base.html.twig" %}
 
-{% if image is defined and image %}
+{% block cover %}
+    {% if image is defined and image %}
     {% set popoverId = "widgetCardpopover-" ~ widget.id %}
-    {% block cover %}
         <div class="cover" style="background-image: url({{ image }});">
             {% if popover is defined and popover %}
             <button id="{% if popoverId is defined and popoverId %}{{ popoverId }}{% endif %}" type="button" class="btn btn-link -square popoverTrigger" data-container="body" data-toggle="popover" data-placement="right" data-content="{{ popover }}">
@@ -16,32 +16,32 @@
                 $('#{% if popoverId is defined and popoverId %}{{ popoverId }}{% endif %}').popover();
             });
         </script>
-    {% endblock cover %}
-{% endif %}
+    {% endif %}
+{% endblock cover %}
 
-{% if title is defined and title %}
-    {% block title %}
+{% block title %}
+    {% if title is defined and title %}
         <strong>{{ title }}</strong>
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}
 
-{% if shortDescription is defined and shortDescription %}
-    {% block shortDescription %}
+{% block shortDescription %}
+    {% if shortDescription is defined and shortDescription %}
         <h4>{{ shortDescription }}</h4>
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}
 
-{% if price is defined and price %}
-    {% block price %}
+{% block price %}
+    {% if price is defined and price %}
         <h5 class="h5 price"><strong>{{ price|localizedcurrency('EUR') }}</strong></h5>
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}
 
-{% if buttonText is defined and buttonText %}
-    {% block button %}
+{% block button %}
+    {% if buttonText is defined and buttonText %}
         {% set targetTag = link.target == "ajax-modal" ? 'data-toggle=' ~ link.target : 'target=' ~ link.target|default('_parent') %}
         <a href="{{ link.url }}" {{ targetTag }} class="btn {% if style is defined and style %}btn-{{ style }}{% endif %}" role="button">
             {{ (buttonIcon is defined and buttonIcon) ? "<i class='fa #{buttonIcon}'></i>"|raw : "" }} {{ buttonText }}
         </a>
-    {% endblock %}
-{% endif %}
+    {% endif %}
+{% endblock %}
