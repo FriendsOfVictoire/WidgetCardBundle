@@ -10,39 +10,38 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Victoire\Bundle\CoreBundle\Form\WidgetType;
 use Victoire\Bundle\WidgetBundle\Entity\Widget;
 
-
 /**
- * WidgetCard form type
+ * WidgetCard form type.
  */
 class WidgetCardType extends WidgetType
 {
-
     private $mode;
 
     /**
-     * define form fields
+     * define form fields.
+     *
      * @param FormBuilderInterface $builder
+     *
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $this->mode = $options['mode'];
 
         $builder
-            ->add('themeCard', 'choice', array(
-                'label' => 'widget_card.form.themeCard.label',
+            ->add('themeCard', 'choice', [
+                'label'          => 'widget_card.form.themeCard.label',
                 'required'       => false,
-                'empty_value' => 'widget_card.form.themeCard.pictureTheme',
-                'attr' => array(
-                    'data-refreshOnChange' => "true",
-                    'target' => '.vic-tab-pane.vic-active'
-                ),
-                'choices' => array(
+                'empty_value'    => 'widget_card.form.themeCard.pictureTheme',
+                'attr'           => [
+                    'data-refreshOnChange' => 'true',
+                    'target'               => '.vic-tab-pane.vic-active',
+                ],
+                'choices' => [
                     'nopicture' => 'widget_card.form.themeCard.noPictureTheme',
-                    'product' => 'widget_card.form.themeCard.productTheme',
-                )
-            ));
+                    'product'   => 'widget_card.form.themeCard.productTheme',
+                ],
+            ]);
 
         if ($this->mode === Widget::MODE_STATIC) {
             $this->addMultiThemeStaticFields($builder);
@@ -54,19 +53,17 @@ class WidgetCardType extends WidgetType
 
         $builder->addEventListener(
             FormEvents::PRE_SET_DATA,
-            function(FormEvent $event) {
-                self::manageThemeRelativeFields($event->getForm(), $event->getData()->getThemeCard() );
+            function (FormEvent $event) {
+                self::manageThemeRelativeFields($event->getForm(), $event->getData()->getThemeCard());
             }
         );
 
         $builder->addEventListener(
             FormEvents::PRE_SUBMIT,
-            function(FormEvent $event) {
+            function (FormEvent $event) {
                 self::manageThemeRelativeFields($event->getForm(), $event->getData()['themeCard']);
             }
         );
-
-
     }
 
     protected function manageThemeRelativeFields(FormInterface $form, $theme)
@@ -95,15 +92,15 @@ class WidgetCardType extends WidgetType
 
         if ($this->mode === Widget::MODE_STATIC) {
             $node
-                ->add('image', 'media', array(
-                    'label' => 'widget_card.form.image.label'
-                ))
-                ->add('legend', null, array(
-                    'label' => 'widget_card.form.legend.label'
-                ))
-                ->add('date', null, array(
-                    'label' => 'widget_card.form.date.label'
-                ));
+                ->add('image', 'media', [
+                    'label' => 'widget_card.form.image.label',
+                ])
+                ->add('legend', null, [
+                    'label' => 'widget_card.form.legend.label',
+                ])
+                ->add('date', null, [
+                    'label' => 'widget_card.form.date.label',
+                ]);
         }
     }
 
@@ -118,9 +115,9 @@ class WidgetCardType extends WidgetType
 
         if ($this->mode === Widget::MODE_STATIC) {
             $node
-                ->add('cardType', null, array(
-                    'label' => 'widget_card.form.type.label'
-                ));
+                ->add('cardType', null, [
+                    'label' => 'widget_card.form.type.label',
+                ]);
         }
     }
 
@@ -133,74 +130,74 @@ class WidgetCardType extends WidgetType
 
         if ($this->mode === Widget::MODE_STATIC) {
             $node
-                ->add('image', 'media', array(
-                    'label' => 'widget_card.form.image.label'
-                ))
-                ->add('price', null, array(
-                    'label' => 'widget_card.form.price.label'
-                ))
-                ->add('popover', null, array(
-                    'label' => 'widget_card.form.popover.label'
-                ));
+                ->add('image', 'media', [
+                    'label' => 'widget_card.form.image.label',
+                ])
+                ->add('price', null, [
+                    'label' => 'widget_card.form.price.label',
+                ])
+                ->add('popover', null, [
+                    'label' => 'widget_card.form.popover.label',
+                ]);
         }
     }
 
     protected function addMultiThemeStaticFields($builder)
     {
         $builder
-            ->add('title', null, array(
-                'label' => 'widget_card.form.title.label'
-            ))
-            ->add('shortDescription', null, array(
-                'label' => 'widget_card.form.shortDescription.label'
-            ))
-        ;
+            ->add('title', null, [
+                'label' => 'widget_card.form.title.label',
+            ])
+            ->add('shortDescription', null, [
+                'label' => 'widget_card.form.shortDescription.label',
+            ]);
     }
 
     protected function addMultiModeStaticFields($builder)
     {
         $builder
-            ->add('buttonText', null, array(
-                'label' => 'widget_card.form.buttonText.label'
-            ))
-            ->add('buttonIcon', 'font_awesome_picker', array(
-                'label' => 'widget_card.form.buttonIcon.label',
+            ->add('buttonText', null, [
+                'label' => 'widget_card.form.buttonText.label',
+            ])
+            ->add('buttonIcon', 'font_awesome_picker', [
+                'label'    => 'widget_card.form.buttonIcon.label',
                 'required' => false,
-            ))
-            ->add('link', 'victoire_link', array(
+            ])
+            ->add('link', 'victoire_link', [
                 'label' => 'widget_card.form.buttonLink.label',
-            ))
-            ->add('style', 'choice', array(
-                'label'   => 'widget.button.form.label.style',
-                'choices'   => array(
+            ])
+            ->add('style', 'choice', [
+                'label'     => 'widget.button.form.label.style',
+                'choices'   => [
                     'default' => 'widget.card.form.choice.style.label.default',
                     'primary' => 'widget.card.form.choice.style.label.primary',
                     'success' => 'widget.card.form.choice.style.label.success',
                     'info'    => 'widget.card.form.choice.style.label.info',
                     'warning' => 'widget.card.form.choice.style.label.warning',
                     'danger'  => 'widget.card.form.choice.style.label.danger',
-                ),
+                ],
                 'required'  => true,
-            ));
+            ]);
     }
 
     /**
-     * bind form to WidgetCard entity
+     * bind form to WidgetCard entity.
+     *
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
 
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\CardBundle\Entity\WidgetCard',
             'widget'             => 'Card',
-            'translation_domain' => 'victoire'
-        ));
+            'translation_domain' => 'victoire',
+        ]);
     }
 
     /**
-     * get form name
+     * get form name.
      *
      * @return string The form name
      */

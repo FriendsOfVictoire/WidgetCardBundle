@@ -1,14 +1,15 @@
 <?php
+
 namespace Victoire\Widget\CardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Victoire\Bundle\WidgetBundle\Entity\Widget;
 use Victoire\Bundle\CoreBundle\Annotations as VIC;
 use Victoire\Bundle\MediaBundle\Entity\Media;
+use Victoire\Bundle\WidgetBundle\Entity\Widget;
 use Victoire\Widget\ImageBundle\Entity\WidgetImage;
 
 /**
- * WidgetCard
+ * WidgetCard.
  *
  * @ORM\Table("vic_widget_card")
  * @ORM\Entity
@@ -23,7 +24,6 @@ class WidgetCard extends Widget
      * @ORM\ManyToOne(targetEntity="\Victoire\Bundle\MediaBundle\Entity\Media")
      * @ORM\JoinColumn(name="image_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      * @VIC\ReceiverProperty("imageable")
-     *
      */
     protected $image;
 
@@ -111,20 +111,20 @@ class WidgetCard extends Widget
     /**
      * To String function
      * Used in render choices type (Especially in VictoireWidgetRenderBundle)
-     * //TODO Check the generated value and make it more consistent
+     * //TODO Check the generated value and make it more consistent.
      *
-     * @return String
+     * @return string
      */
     public function __toString()
     {
         return 'Card #'.$this->id.' - '.$this->title;
     }
 
-
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
+     *
      * @return $this
      */
     public function setTitle($title)
@@ -135,7 +135,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -145,9 +145,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set shortDescription
+     * Set shortDescription.
      *
      * @param string $shortDescription
+     *
      * @return $this
      */
     public function setShortdescription($shortDescription)
@@ -158,7 +159,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get shortDescription
+     * Get shortDescription.
      *
      * @return string
      */
@@ -168,9 +169,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set buttonText
+     * Set buttonText.
      *
      * @param string $buttonText
+     *
      * @return $this
      */
     public function setButtontext($buttonText)
@@ -181,7 +183,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get buttonText
+     * Get buttonText.
      *
      * @return string
      */
@@ -191,9 +193,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set buttonIcon
+     * Set buttonIcon.
      *
      * @param string $buttonIcon
+     *
      * @return $this
      */
     public function setButtonicon($buttonIcon)
@@ -204,7 +207,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get buttonIcon
+     * Get buttonIcon.
      *
      * @return string
      */
@@ -214,7 +217,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get style
+     * Get style.
      *
      * @return string
      */
@@ -224,9 +227,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set style
+     * Set style.
      *
      * @param string $style
+     *
      * @return $this
      */
     public function setStyle($style)
@@ -237,9 +241,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set legend
+     * Set legend.
      *
      * @param string $legend
+     *
      * @return $this
      */
     public function setLegend($legend)
@@ -250,7 +255,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get legend
+     * Get legend.
      *
      * @return string
      */
@@ -260,9 +265,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param string $date
+     *
      * @return $this
      */
     public function setDate($date)
@@ -273,7 +279,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get date
+     * Get date.
      *
      * @return string
      */
@@ -283,9 +289,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set price
+     * Set price.
      *
      * @param string $price
+     *
      * @return $this
      */
     public function setPrice($price)
@@ -296,7 +303,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get price
+     * Get price.
      *
      * @return string
      */
@@ -306,9 +313,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set popover
+     * Set popover.
      *
      * @param string $popover
+     *
      * @return $this
      */
     public function setPopover($popover)
@@ -319,7 +327,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get popover
+     * Get popover.
      *
      * @return string
      */
@@ -329,9 +337,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set cardType
+     * Set cardType.
      *
      * @param string $cardType
+     *
      * @return $this
      */
     public function setCardType($cardType)
@@ -342,7 +351,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get cardType
+     * Get cardType.
      *
      * @return string
      */
@@ -361,6 +370,7 @@ class WidgetCard extends Widget
 
     /**
      * @param string $themeCard
+     *
      * @return $this
      */
     public function setThemeCard($themeCard)
@@ -371,8 +381,10 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Set image
+     * Set image.
+     *
      * @param string|Media $image
+     *
      * @return WidgetImage
      */
     public function setImage(Media $image)
@@ -383,7 +395,7 @@ class WidgetCard extends Widget
     }
 
     /**
-     * Get image
+     * Get image.
      *
      * @return string
      */
@@ -391,5 +403,4 @@ class WidgetCard extends Widget
     {
         return $this->image;
     }
-
 }
