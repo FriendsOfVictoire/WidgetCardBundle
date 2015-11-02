@@ -28,11 +28,11 @@
             </trans-unit>
             <trans-unit id="bzjhus8qwsz640ydqpmmo9daguqxnce4hnbh5pd8" resname="widget_card.form.buttonText.label">
                 <source>widget_card.form.buttonText.label</source>
-                <target state="new">Contenu textuel du boutton</target>
+                <target state="new">Contenu textuel du bouton</target>
             </trans-unit>
             <trans-unit id="ws501rz31igdqjy7o3cq7jt9i77l2xn4wyvng0wn" resname="widget_card.form.buttonIcon.label">
                 <source>widget_card.form.buttonIcon.label</source>
-                <target state="new">Icon précédent le contenu du bouton</target>
+                <target state="new">Icone précédent le contenu du bouton</target>
             </trans-unit>
             <trans-unit id="ctpt6vfwv45fhpa4hvshgo9cxqgb2rekbu3nf9p1" resname="widget_card.form.legend.label">
                 <source>widget_card.form.legend.label</source>
@@ -56,11 +56,11 @@
             </trans-unit>
             <trans-unit id="c1fjlfvdtl3apqjhmntn6dis45lk4nkmu5bmax59" resname="widget_card.form.themeCard.label">
                 <source>widget_card.form.themeCard.label</source>
-                <target state="new">Theme de la carte</target>
+                <target state="new">Thème de la carte</target>
             </trans-unit>
             <trans-unit id="j9krr5lu3nd2bv7ec9tut2jlrduq77cg6md3honq" resname="widget_card.form.buttonLink.label">
                 <source>widget_card.form.buttonLink.label</source>
-                <target state="new">Lien du boutton</target>
+                <target state="new">Lien du bouton</target>
             </trans-unit>
             <trans-unit id="l8fv2l7gibnd9x3qsxkegmhcevc9fdyrrjsjv653" resname="widget_card.form.image.label">
                 <source>widget_card.form.image.label</source>
@@ -76,7 +76,7 @@
             </trans-unit>
             <trans-unit id="jpgxco5ez6mmky45bfr3ogzy3zlnuiyenkf30o1i" resname="widget.card.form.choice.style.label.default">
                 <source>widget.card.form.choice.style.label.default</source>
-                <target>Default</target>
+                <target>Défaut</target>
             </trans-unit>
             <trans-unit id="jz7gtibwvbzdxj5x8eauh42kfexatdx4idmjwzvc" resname="widget.card.form.choice.style.label.info">
                 <source>widget.card.form.choice.style.label.info</source>
@@ -84,15 +84,15 @@
             </trans-unit>
             <trans-unit id="onqnrouwylk5ab40t90ex50he7a7llhwevbeg18f" resname="widget.card.form.choice.style.label.primary">
                 <source>widget.card.form.choice.style.label.primary</source>
-                <target>Primary</target>
+                <target>Primaire</target>
             </trans-unit>
             <trans-unit id="8ng29lzjbb0bmqibvpdjdn06cj6bms1igha73jx4" resname="widget.card.form.choice.style.label.success">
                 <source>widget.card.form.choice.style.label.success</source>
-                <target>Success</target>
+                <target>Succès</target>
             </trans-unit>
             <trans-unit id="bdfkbefuelggr46xwixcv72xx29go7wfvcgdiqma" resname="widget.card.form.choice.style.label.warning">
                 <source>widget.card.form.choice.style.label.warning</source>
-                <target>Warning</target>
+                <target>Avertissement</target>
             </trans-unit>
             <trans-unit id="dhnjmgzaygpa95zltubs9bhunwq9xqozy5bu6y8c" resname="widget_card.form.themeCard.pictureTheme">
                 <source>widget_card.form.themeCard.pictureTheme</source>

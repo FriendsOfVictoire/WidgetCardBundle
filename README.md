@@ -1,18 +1,25 @@
-Victoire CMS Card Bundle
+Victoire DCMS Card Bundle
 ============
 
-Need to add a card in a victoire website ?
+##What is the purpose of this bundle
 
-First you need to have a valid Symfony2 Victoire edition.
-Then run:
+This bundle gives you access to the *Card Widget*.
+With this widget, you can integrate any Business Entity as a Card over any widget.
 
-```
+##Set Up Victoire
+
+If you haven't already, you can follow the steps to set up Victoire *[here](https://github.com/Victoire/victoire/blob/master/setup.md)*
+
+##Install the Bundle
+
+Run the following composer command :
+
     php composer.phar require friendsofvictoire/card-widget
-```
+
+###Reminder
 
 Declare the bundle in your AppKernel
 
-```php
     class AppKernel extends Kernel
     {
         public function registerBundles()
@@ -25,4 +32,3 @@ Declare the bundle in your AppKernel
             return $bundles;
         }
     }
-```
