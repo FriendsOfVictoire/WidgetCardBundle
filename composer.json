@@ -1,18 +1,18 @@
 {
     "name": "friendsofvictoire/card-widget",
     "type": "symfony-bundle",
-    "description": "Victoire Card widget",
-    "keywords": ["victoire", "Card", "widget"],
+    "description": "Victoire DCMS Card widget",
+    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "FoV", "Dynamic", "CMS", "Card"],
     "homepage": "http://victoire.io",
     "license": "MIT",
     "author": {
         "name": "Vincent Chapron",
-        "email": "vincent@appventus.com"
+        "email": "team-dev@victoire.io"
     },
     "require": {
         "php"                      : ">=5.3.3",
         "symfony/framework-bundle" : "~2.3",
-        "victoire/victoire"        : "dev-master"
+        "victoire/victoire"        : "~1.3.0"
     },
     "autoload": {
         "psr-0": { "Victoire\\Widget\\CardBundle": "" }
