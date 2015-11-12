@@ -68,7 +68,7 @@ class WidgetCard extends Widget
      * @var string
      *
      * @ORM\Column(name="legend", type="string", length=255, nullable=true)
-     * @VIC\ReceiverProperty("textable")
+     * @VIC\ReceiverProperty("textable", required=false)
      */
     protected $legend;
 
@@ -76,7 +76,7 @@ class WidgetCard extends Widget
      * @var date
      *
      * @ORM\Column(name="date", type="date", nullable=true)
-     * @VIC\ReceiverProperty("dateable")
+     * @VIC\ReceiverProperty("dateable", required=false)
      */
     protected $date;
 
