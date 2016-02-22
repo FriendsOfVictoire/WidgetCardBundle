@@ -12,4 +12,4 @@ services:
     victoire.widget.form.card:
         class: Victoire\Widget\CardBundle\Form\WidgetCardType
         tags:
-            - { name: form.type , alias: victoire_widget_form_card }
+            - { name: form.type }
