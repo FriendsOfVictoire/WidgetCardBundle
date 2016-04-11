@@ -121,7 +121,7 @@ class WidgetCardType extends WidgetType
     {
         $node
             ->remove('image')
-            ->add('image', 'media', [
+            ->add('image', MediaType::class, [
                 'vic_vic_widget_form_group_attr' => [
                     'class' => 'hidden',
                 ],
