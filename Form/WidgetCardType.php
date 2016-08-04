@@ -204,7 +204,8 @@ class WidgetCardType extends WidgetType
                     'widget.card.form.choice.style.label.warning' => 'warning',
                     'widget.card.form.choice.style.label.danger'  => 'danger',
                 ],
-                'required'  => true,
+                'required'          => true,
+                'choices_as_values' => true,
             ]);
     }
 
